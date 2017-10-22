@@ -252,6 +252,9 @@
     <ClCompile Include="tests\main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="my-demo.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="imaging\bitmap.h">
@@ -750,6 +753,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="command-line-parser.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="my-demo.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

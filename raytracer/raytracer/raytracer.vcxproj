@@ -367,6 +367,7 @@
     <ClCompile Include="math\plane.cpp" />
     <ClCompile Include="math\quantize.cpp" />
     <ClCompile Include="math\transformation-matrices.cpp" />
+    <ClCompile Include="my-demo.cpp" />
     <ClCompile Include="performance\performance.cpp" />
     <ClCompile Include="pipeline\animation-processor.cpp" />
     <ClCompile Include="pipeline\base64-processor.cpp" />
@@ -495,6 +496,7 @@
     <ClInclude Include="math\transformation-matrices.h" />
     <ClInclude Include="math\vector.h" />
     <ClInclude Include="math\point.h" />
+    <ClInclude Include="my-demo.h" />
     <ClInclude Include="performance\performance.h" />
     <ClInclude Include="pipeline\animation-processor.h" />
     <ClInclude Include="pipeline\base64-processor.h" />
