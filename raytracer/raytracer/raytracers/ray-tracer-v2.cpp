@@ -53,7 +53,7 @@ imaging::Color raytracer::raytracers::_private_::RayTracerV2::process_light_sour
 	Color result = colors::black();
 	Point3D test = ray.at(hit.t);
 	std::vector<LightRay> l = lightSource->lightrays_to(test);
-	for(LightRay lightray : l)
+	for (LightRay lightray : l)
 	{
 		result = result + process_light_ray(scene, mProp, hit, ray, lightray);
 	}
@@ -67,7 +67,7 @@ imaging::Color raytracer::raytracers::_private_::RayTracerV2::process_light_ray(
 }
 imaging::Color raytracer::raytracers::_private_::RayTracerV2::compute_diffuse(const MaterialProperties& mProp, const Hit& hit, const math::Ray& ray, const LightRay& lightRay) const
 {
-	
+
 	Point3D l = lightRay.ray.origin;
 	Color cL = lightRay.color;
 	Color cS = compute_ambient(mProp);
