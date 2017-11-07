@@ -29,7 +29,7 @@ TraceResult raytracer::raytracers::_private_::RayTracerV2::trace(const Scene& sc
 		Color result = colors::black();
 		result = result + compute_ambient(properties);
 		result = result + process_lights(scene, properties, hit, ray);
-		return TraceResult(compute_ambient(properties), group_id, ray, t);
+		return TraceResult(result, group_id, ray, t);
 	}
 	else
 	{
@@ -53,7 +53,7 @@ imaging::Color raytracer::raytracers::_private_::RayTracerV2::process_light_sour
 	Color result = colors::black();
 	Point3D test = ray.at(hit.t);
 	std::vector<LightRay> l = lightSource->lightrays_to(test);
-	for(LightRay lightray : l)
+	for (LightRay lightray : l)
 	{
 		result = result + process_light_ray(scene, mProp, hit, ray, lightray);
 	}
@@ -67,18 +67,21 @@ imaging::Color raytracer::raytracers::_private_::RayTracerV2::process_light_ray(
 }
 imaging::Color raytracer::raytracers::_private_::RayTracerV2::compute_diffuse(const MaterialProperties& mProp, const Hit& hit, const math::Ray& ray, const LightRay& lightRay) const
 {
-	
 	Point3D l = lightRay.ray.origin;
 	Color cL = lightRay.color;
-	Color cS = compute_ambient(mProp);
-	Point3D p = lightRay.ray.at(hit.t);
-	Vector3D n = ray.direction;
-	Vector3D v = p - l;
-	v.normalize();
+	Color cS = mProp.diffuse;
+	Point3D p = hit.position;
+	Vector3D n = hit.normal;
+	Vector3D v = (l - p).normalized();
 	// std::cout << v.dot(n) * cL * cS;
-	auto result = v.dot(n) * cL * cS;
+	double dot = v.dot(n);
 
-	return result;
+	if (dot <= 0) return colors::black();
+	else
+	{
+		auto result = dot * cL * cS;
+		return result;
+	}
 }
 raytracer::RayTracer raytracer::raytracers::v2()
 {

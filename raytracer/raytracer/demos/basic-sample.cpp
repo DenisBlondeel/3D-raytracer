@@ -19,6 +19,11 @@ namespace
         using Demo::Demo;
 
     protected:
+		raytracer::RayTracer create_ray_tracer() override
+		{
+			return raytracers::v2();
+		}
+
         /// <summary>
         /// Creates the root. This method will be called for several values of <paramref name="now" />,
         /// thus creating an animation.
@@ -31,10 +36,10 @@ namespace
 
             // Define material properties
             MaterialProperties material_properties(
-                colors::black(),      // ambient lighting, not supported yet
-                colors::black(),      // diffuse lighting, not supported yet
-                colors::black(),      // specular highlights, not supported yet
-                0                     // specular exponent, not supported yet
+                colors::green() * 0.0,        // ambient lighting, not supported yet
+                colors::green() * 0.8,      // diffuse lighting, not supported yet
+                colors::black(),            // specular highlights, not supported yet
+                0                           // specular exponent, not supported yet
             );
 
             // Create a uniform material: all parts of the primitive will be made out of the same material
@@ -48,7 +53,7 @@ namespace
             Primitive primitive = sphere();
 
             // Move the sphere. x_position(now) = asks the animation what x at this point in time
-            primitive = translate(Vector3D(x_position(now), 0, 0), primitive);
+			// primitive = translate(Vector3D(x_position(now), 0, 0), primitive);
 
             // Assign a material to the sphere
             primitive = decorate(material, primitive);
@@ -66,7 +71,7 @@ namespace
 
             std::vector<LightSource> light_sources;
 
-            // No lights
+			light_sources.push_back(lights::omnidirectional(Point3D(0, 5, 5), colors::white()));
 
             return light_sources;
         }
@@ -77,7 +82,7 @@ namespace
         raytracer::Camera create_camera(TimeStamp) override
         {
             return raytracer::cameras::perspective(
-                Point3D(0, 0, 10),         // position of eye
+                Point3D(0, 0, 8),         // position of eye
                 Point3D(0, 0, 0),          // point the camera looks at
                 Vector3D(0, 1, 0),         // up-vector: indicates camera is "standing up"
                 1,                         // distance between eye and viewing plane
@@ -92,5 +97,5 @@ namespace
 
 void demos::basic_sample(std::shared_ptr<pipeline::Consumer<std::shared_ptr<Bitmap>>> output)
 {
-    MeshDemo(500, 1_s, 30, 1).render(output);
+    MeshDemo(500, 1_s, 1, 1).render(output);
 }
