@@ -15,13 +15,15 @@ namespace
     struct RaytracerLibrary
     {
         RayTracer v0() const { return raytracer::raytracers::v0(); }
+		//RayTracer v1() const { return raytracer::raytracers::v1(); }
 
         RayTracer v(int version) const
         {
             switch (version)
             {
-#           define DISPATCH(N) case N: return v ## N()
+#           define DISPATCH(N) case N: return raytracer::raytracers::v ## N()
                 DISPATCH(0);
+				DISPATCH(1);
 #           undef DISPATCH
 
             default:
