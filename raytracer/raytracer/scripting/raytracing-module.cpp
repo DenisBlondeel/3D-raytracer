@@ -24,6 +24,7 @@ namespace
 #           define DISPATCH(N) case N: return raytracer::raytracers::v ## N()
                 DISPATCH(0);
 				DISPATCH(1);
+				DISPATCH(2);
 #           undef DISPATCH
 
             default:
