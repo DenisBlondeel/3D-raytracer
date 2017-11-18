@@ -74,6 +74,24 @@ namespace
         Vector3D cylindrical_z(double radius, Angle azimuth, double z) const    { return Vector3D::cylindrical_z(radius, azimuth, z); }
     };
 
+	struct EasingLibrary
+	{
+		EasingFunction linear() const { return math::functions::easing::linear(); }
+		//EasingFunction stretch(EasingFunction function, const Interval<double>& x_range, const Interval<double>& y_range) const { return math::functions::easing::stretch(EasingFunction function, const Interval<double>& x_range, const Interval<double>& y_range); }
+		//EasingFunction stretch_in_space() const { return math::functions::easing::stretch_in_space(); }
+		//EasingFunction stretch_in_time() const { return math::functions::easing::stretch_in_time(); }
+	};
+	void add_easing(Module& module)
+	{
+		raytracer::scripting::util::register_type<EasingLibrary>(module, "EasingLibrary");
+		auto easingLibrary = std::make_shared<EasingLibrary>();
+		module.add_global_const(chaiscript::const_var(easingLibrary), "Easing");
+#   define BIND(NAME)  module.add(fun(&EasingLibrary::NAME), #NAME)
+		BIND(linear);
+
+#   undef BIND
+
+	}
     void add_points_and_vectors(Module& module)
     {
         raytracer::scripting::util::register_type<math::Point2D>(module, "Point2D");
@@ -183,7 +201,7 @@ ModulePtr raytracer::scripting::_private_::create_math_module()
     add_rectangle3d(*module);
     add_angle(*module);
     add_interval(*module);
-
+	add_easing(*module);
     return module;
 }
 

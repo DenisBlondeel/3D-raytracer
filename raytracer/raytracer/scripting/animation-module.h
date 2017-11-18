@@ -11,7 +11,7 @@ namespace raytracer
     {
         namespace _private_
         {
-            chaiscript::ModulePtr create_animation_module();
+			chaiscript::ModulePtr create_animation_module();
         }
     }
 }

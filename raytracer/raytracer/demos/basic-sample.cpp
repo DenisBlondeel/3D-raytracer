@@ -57,7 +57,7 @@ namespace
 
             // Assign a material to the sphere
             primitive = decorate(material, primitive);
-
+			
             return primitive;
         }
 
