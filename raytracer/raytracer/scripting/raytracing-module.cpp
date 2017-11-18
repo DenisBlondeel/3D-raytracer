@@ -25,6 +25,7 @@ namespace
                 DISPATCH(0);
 				DISPATCH(1);
 				DISPATCH(2);
+				DISPATCH(3);
 #           undef DISPATCH
 
             default:

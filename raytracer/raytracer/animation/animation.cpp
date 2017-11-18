@@ -17,3 +17,4 @@ Animation<double> animation::basic(double from, double to, const Duration& durat
 
     return make_animation(from_lambda(lambda), duration);
 }
+

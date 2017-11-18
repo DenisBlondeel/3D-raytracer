@@ -21,7 +21,7 @@ namespace
     protected:
 		raytracer::RayTracer create_ray_tracer() override
 		{
-			return raytracers::v2();
+			return raytracers::v3();
 		}
 
         /// <summary>

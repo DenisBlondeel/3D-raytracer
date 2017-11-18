@@ -87,5 +87,6 @@ namespace animation
         return make_animation<T2>(animation.function() >> function, animation.duration());
     }
 
-    Animation<double> basic(double, double, const Duration&);
+	Animation<double> basic(double, double, const Duration&);
+	Animation<math::Point3D> basic(math::Point3D, math::Point3D, const Duration&);
 }
