@@ -109,6 +109,42 @@ namespace
 			hit->local_position.uv = Point2D(hit->position.x(), hit->position.z());
 			hit->normal = ray.origin.y() > 0 ? m_normal : -m_normal;
 		}
+	public:
+		bool find_first_positive_hit(const math::Ray& ray, Hit* hit) const override
+		{
+			
+			return true;
+		}
+	};
+	class PlaneYZImplementation : public CoordinatePlaneImplementation
+	{
+	public:
+		PlaneYZImplementation()
+			: CoordinatePlaneImplementation(Vector3D(0, 1, 0))
+		{
+			// NOP
+		}
+
+		math::Box bounding_box() const override
+		{
+			return Box(Interval<double>::infinite(), Interval<double>::infinite(), interval(-0.01, 0.01));
+		}
+
+	protected:
+		void initialize_hit(Hit* hit, const Ray& ray, double t) const override
+		{
+			hit->t = t;
+			hit->position = ray.at(hit->t);
+			hit->local_position.xyz = hit->position;
+			hit->local_position.uv = Point2D(hit->position.y(), hit->position.z());
+			hit->normal = ray.origin.x() > 0 ? m_normal : -m_normal;
+		}
+	public:
+		bool find_first_positive_hit(const math::Ray& ray, Hit* hit) const override
+		{
+
+			return true;
+		}
 	};
 }
 
@@ -119,4 +155,8 @@ Primitive raytracer::primitives::xy_plane()
 Primitive raytracer::primitives::xz_plane()
 {
 	return Primitive(std::make_shared<PlaneXZImplementation>());
+}
+Primitive raytracer::primitives::yz_plane()
+{
+	return Primitive(std::make_shared<PlaneYZImplementation>());
 }
