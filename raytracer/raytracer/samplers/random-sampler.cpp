@@ -11,7 +11,7 @@ namespace
 	public:
 		void sample(const math::Rectangle2D& rectangle, std::function<void(const math::Point2D&)> function) const override
 		{
-			
+			function(rectangle.center());
 		}
 	};
 }
