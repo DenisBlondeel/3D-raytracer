@@ -346,6 +346,7 @@
     </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="animation\circular-animation.cpp" />
     <ClCompile Include="demos\basic-sample.cpp" />
     <ClCompile Include="demos\demo.cpp" />
     <ClCompile Include="math\angle.cpp" />
@@ -361,6 +362,7 @@
     <ClCompile Include="materials\composition-material.cpp" />
     <ClCompile Include="materials\material-properties.cpp" />
     <ClCompile Include="materials\pattern-materials.cpp" />
+    <ClCompile Include="math\functions\easing\bounce-easing-function.cpp" />
     <ClCompile Include="math\functions\easing\linear-easing-function.cpp" />
     <ClCompile Include="math\functions\easing\stretch-easing-function.cpp" />
     <ClCompile Include="math\functions\horizontal-lines-pattern.cpp" />
@@ -435,6 +437,7 @@
   <ItemGroup>
     <ClInclude Include="animation\animation.h" />
     <ClInclude Include="animation\animations.h" />
+    <ClInclude Include="animation\circular-animation.h" />
     <ClInclude Include="animation\duration.h" />
     <ClInclude Include="animation\ease-animation.h" />
     <ClInclude Include="animation\interval-animation.h" />
@@ -493,6 +496,7 @@
     <ClInclude Include="math\coordinate-systems.h" />
     <ClInclude Include="math\functions\constant.h" />
     <ClInclude Include="math\functions\easing-function.h" />
+    <ClInclude Include="math\functions\easing\bounce-easing-function.h" />
     <ClInclude Include="math\functions\easing\linear-easing-function.h" />
     <ClInclude Include="math\functions\easing\stretch-easing-function.h" />
     <ClInclude Include="math\functions\horizontal-lines-pattern.h" />

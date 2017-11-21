@@ -270,7 +270,10 @@
     <ClCompile Include="raytracers\ray-tracer-v3.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="samplers\stratified-sampler.cpp">
+    <ClCompile Include="math\functions\easing\bounce-easing-function.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="animation\circular-animation.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -791,7 +794,10 @@
     <ClInclude Include="raytracers\ray-tracer-v3.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="samplers\stratified-sampler.h">
+    <ClInclude Include="math\functions\easing\bounce-easing-function.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="animation\circular-animation.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

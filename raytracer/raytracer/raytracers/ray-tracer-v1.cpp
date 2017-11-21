@@ -27,9 +27,7 @@ TraceResult raytracer::raytracers::_private_::RayTracerV1::trace(const Scene& sc
 		double t = hit.t;
 
 		// Group all this data into a TraceResult object.
-		HitPosition p;
-		p.xyz = ray.at(t);
-		MaterialProperties properties = hit.material->at(p);
+		MaterialProperties properties = hit.material->at(hit.local_position);
 		return TraceResult(compute_ambient(properties), group_id, ray, t);
 	}
 	else
