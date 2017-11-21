@@ -9,7 +9,7 @@ namespace math
 	{
 		namespace easing
 		{
-			math::functions::EasingFunction bounce();
+			math::functions::EasingFunction bounce(int,int);
 		}
 	}
 }

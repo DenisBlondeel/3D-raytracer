@@ -21,15 +21,15 @@ TraceResult raytracer::raytracers::_private_::RayTracerV2::trace(const Scene& sc
 
 		// The t-value indicates where the ray/scene intersection took place.
 		// You can use ray.at(t) to find the xyz-coordinates in space.
-		double t = hit.t;
-		HitPosition p;
-		p.xyz = ray.at(t);
-		MaterialProperties properties = hit.material->at(p);
+		//double t = hit.t;
+		//HitPosition p;
+		//p.xyz = ray.at(t);
+		MaterialProperties properties = hit.material->at(hit.local_position);
 		// Group all this data into a TraceResult object.
 		Color result = colors::black();
 		result = result + compute_ambient(properties);
 		result = result + process_lights(scene, properties, hit, ray);
-		return TraceResult(result, group_id, ray, t);
+		return TraceResult(result, group_id, ray, hit.t);
 	}
 	else
 	{

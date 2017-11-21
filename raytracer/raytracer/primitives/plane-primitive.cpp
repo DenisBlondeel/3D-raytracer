@@ -110,17 +110,19 @@ namespace
 			hit->normal = ray.origin.y() > 0 ? m_normal : -m_normal;
 		}
 	public:
+		/*
 		bool find_first_positive_hit(const math::Ray& ray, Hit* hit) const override
 		{
 			
 			return true;
 		}
+		*/
 	};
 	class PlaneYZImplementation : public CoordinatePlaneImplementation
 	{
 	public:
 		PlaneYZImplementation()
-			: CoordinatePlaneImplementation(Vector3D(0, 1, 0))
+			: CoordinatePlaneImplementation(Vector3D(1,0,0))
 		{
 			// NOP
 		}
@@ -136,15 +138,17 @@ namespace
 			hit->t = t;
 			hit->position = ray.at(hit->t);
 			hit->local_position.xyz = hit->position;
-			hit->local_position.uv = Point2D(hit->position.y(), hit->position.z());
+			hit->local_position.uv = Point2D(hit->position.z(), hit->position.y());
 			hit->normal = ray.origin.x() > 0 ? m_normal : -m_normal;
 		}
 	public:
+		/*
 		bool find_first_positive_hit(const math::Ray& ray, Hit* hit) const override
 		{
 
 			return true;
 		}
+		*/
 	};
 }
 

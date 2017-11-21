@@ -7,7 +7,7 @@ using namespace math::functions;
 
 
 EasingFunction math::functions::easing::linear()
-{
+{	
     std::function<double(double)> lambda = [](double t) {
         assert(interval(0.0, 1.0).contains(t));
 
