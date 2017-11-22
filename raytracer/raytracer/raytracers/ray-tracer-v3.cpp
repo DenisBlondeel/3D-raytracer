@@ -26,7 +26,7 @@ imaging::Color raytracer::raytracers::_private_::RayTracerV3::compute_specular(c
 	double cosa = v.dot(r);
 	if (cosa > 0)
 	{
-		result = cL * cP * pow(cosa,3.2);
+		result = cL * cP * pow(cosa,mProp.specular_exponent);
 	}
 	else 
 	{

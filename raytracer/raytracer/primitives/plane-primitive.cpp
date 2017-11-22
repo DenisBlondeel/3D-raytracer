@@ -110,11 +110,36 @@ namespace
 			hit->normal = ray.origin.y() > 0 ? m_normal : -m_normal;
 		}
 	public:
+		
 		/*
 		bool find_first_positive_hit(const math::Ray& ray, Hit* hit) const override
 		{
-			
-			return true;
+			double denom = ray.direction.dot(m_normal);
+
+			// If denominator == 0, there is no intersection (ray runs parallel to plane)
+			if (denom != approx(0.0))
+			{
+				// Compute numerator
+				double numer = -((ray.origin - Point3D(0, 0, 0)).dot(m_normal));
+
+				// Compute t
+				double t = numer / denom;
+				if (t > 0)
+				{
+					if (t < hit->t)
+					{
+						// Create hit object
+						auto hit = std::make_shared<Hit>();
+
+						// shared_ptr<T>::get() returns the T* inside the shared pointer
+						initialize_hit(hit.get(), ray, t);
+						return true;
+					}
+					else
+					{
+						return false;
+					}
+				}
 		}
 		*/
 	};
