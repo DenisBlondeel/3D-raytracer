@@ -12,8 +12,7 @@ namespace math
     {
     public:
         template<typename... Ts>
-        Point(Ts... args)
-            : Point( std::array<double, sizeof...(Ts)> {{double(args)...}})
+        Point(Ts... args): Point( std::array<double, sizeof...(Ts)> {{double(args)...}})
         {
             static_assert(sizeof...(Ts) == N, "Invalid number of arguments");
         }
@@ -21,8 +20,7 @@ namespace math
         Point(std::array<double, N>&& coords)
             : m_coords(coords) { }
 
-        Point()
-            : m_coords()
+        Point(): m_coords()
         {
             for (unsigned i = 0; i != N; ++i)
             {

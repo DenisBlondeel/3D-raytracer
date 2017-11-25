@@ -1,9 +1,7 @@
-#include <iostream>
-#include <fstream>
+#include <stdlib.h>
 #include "samplers/random-sampler.h"
 
 using namespace math;
-using namespace std;
 using namespace raytracer;
 
 
@@ -19,20 +17,15 @@ namespace
 
 		std::vector<Point2D> sample(const math::Rectangle2D& rectangle) const override
 		{
-			ofstream myfile;
-			myfile.open("C:/Users/Denis/Desktop/console.txt");
 
 			std::vector<Point2D> result;
-			myfile << rectangle.center();
-			myfile << rectangle.origin;
-			myfile << rectangle.y_axis;
-			myfile << rectangle.x_axis;
-			for (int i = 0; i > m_sample_count; i++) 
+				//result.push_back(rectangle.from_relative(Point2D(0.002, 0.5)));
+				//result.push_back(rectangle.from_relative(Point2D(0.8, 0.6)));
+				//result.push_back(rectangle.from_relative(Point2D(0.4, 0.2)));
+			for (int i = 0; i < m_sample_count; i++) 
 			{
-
-				
+			result.push_back(rectangle.from_relative(Point2D(rand() / (RAND_MAX + 1.), rand() / (RAND_MAX + 1.))));
 			}
-				myfile.close();
 
 			return result;
 		}
