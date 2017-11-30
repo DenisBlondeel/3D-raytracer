@@ -10,7 +10,7 @@ namespace
 	class SpotLight: public raytracer::lights::_private_::PointLightImplementation
 	{
 	public:
-			SpotLight(const math::Point3D& position, const math::Point3D& endPosition, const math::Angle& angle, imaging::Color color)
+			SpotLight(const math::Point3D& position, const math::Point3D& endPosition, const math::Angle& angle, const imaging::Color& color)
 			: PointLightImplementation(position), m_color(color),m_endPosition(endPosition),m_angle(angle){ }
 
 	protected:

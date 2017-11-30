@@ -1,5 +1,4 @@
 #pragma once
-
 #include "primitives/primitive.h"
 
 
@@ -7,6 +6,6 @@ namespace raytracer
 {
 	namespace primitives
 	{
-		Primitive xy_square();
+		Primitive triangle(math::Point3D p1, math::Point3D p2, math::Point3D p3);
 	}
 }

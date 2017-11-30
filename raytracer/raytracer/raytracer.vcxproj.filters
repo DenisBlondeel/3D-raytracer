@@ -282,10 +282,10 @@
     <ClCompile Include="samplers\stratified-sampler.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="primitives\square-primitive.cpp">
+    <ClCompile Include="raytracers\ray-tracer-v4.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="samplers\jittered-sampler.cpp">
+    <ClCompile Include="primitives\triangle-primitive.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -818,10 +818,10 @@
     <ClInclude Include="samplers\stratified-sampler.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="primitives\square-primitive.h">
+    <ClInclude Include="raytracers\ray-tracer-v4.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="samplers\jittered-sampler.h">
+    <ClInclude Include="primitives\triangle-primitive.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

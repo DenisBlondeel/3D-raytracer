@@ -18,7 +18,7 @@ namespace
         {
             return lights::omnidirectional(position, c);
         }
-		LightSource spot(const Point3D& position, const Point3D& endPosition, const Angle& angle,const Color& c)
+		LightSource spot(const Point3D& position, const Point3D& endPosition, const Angle& angle,const Color& c) const
 		{
 			return lights::spot(position, endPosition, angle, c);
 		}

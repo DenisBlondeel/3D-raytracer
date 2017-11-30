@@ -5,4 +5,4 @@
 #include "primitives/union-primitive.h"
 #include "primitives/decorator-primitive.h"
 #include "primitives/transformer-primitive.h"
-#include "primitives\square-primitive.h"
+#include "primitives/triangle-primitive.h"

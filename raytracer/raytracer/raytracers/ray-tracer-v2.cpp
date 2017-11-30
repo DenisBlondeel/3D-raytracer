@@ -73,7 +73,6 @@ imaging::Color raytracer::raytracers::_private_::RayTracerV2::compute_diffuse(co
 	Point3D p = hit.position;
 	Vector3D n = hit.normal;
 	Vector3D v = (l - p).normalized();
-	// std::cout << v.dot(n) * cL * cS;
 	double dot = v.dot(n);
 
 	if (dot <= 0) return colors::black();
