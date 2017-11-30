@@ -22,11 +22,16 @@ namespace
 			std::vector<Point2D> result;
 			Rasterizer rast(rectangle, N, M);
 
-			for (int i = 0; i < N; i++)
+			for (int i = 0; i <= N; i++)
 			{
-				for (int j = 0; j < M; j++)
+				for (int j = 0; j <= M; j++)
 				{
-					result.push_back(rast[Position2D(N, M)].center);
+					Position2D pos(N, M);
+
+					Rectangle2D rect = rast[pos];
+
+					Point2D cent = rect.center();
+					result.push_back(cent);
 				}
 			}
 
