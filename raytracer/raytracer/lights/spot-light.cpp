@@ -17,9 +17,9 @@ namespace
 		LightRay cast_lightray_to(const math::Point3D& p) const override
 		{
 			// Create ray starting at the light source's position and going through p
-			math::Ray ray(m_position, p);
+			math::Ray ray(m_position, m_endPosition);
 			Vector3D v = ray.direction;
-			Vector3D u = (m_position - m_endPosition).normalized();
+			Vector3D u = (p - m_position).normalized();
 			if (u.dot(v) >= cos(m_angle / 2))
 			{
 				return LightRay(ray, m_color);

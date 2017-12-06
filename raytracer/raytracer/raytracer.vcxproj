@@ -444,6 +444,7 @@
     <ClInclude Include="animation\duration.h" />
     <ClInclude Include="animation\ease-animation.h" />
     <ClInclude Include="animation\interval-animation.h" />
+    <ClInclude Include="animation\lissajous-animation.h" />
     <ClInclude Include="animation\time-stamp.h" />
     <ClInclude Include="chaiscript\chaiscript.hpp" />
     <ClInclude Include="chaiscript\chaiscript_defines.hpp" />
