@@ -13,7 +13,7 @@ namespace raytracer
 			class RayTracerV4 : public raytracer::raytracers::_private_::RayTracerV3
 			{
 			protected:
-				imaging::Color process_light_ray(const Scene&, const MaterialProperties&, const Hit&, const math::Ray&, const LightRay&) const override;
+				virtual imaging::Color process_light_ray(const Scene&, const MaterialProperties&, const Hit&, const math::Ray&, const LightRay&) const override;
 			};
 		}
 		RayTracer v4();

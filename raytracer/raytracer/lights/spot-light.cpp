@@ -18,7 +18,7 @@ namespace
 		{
 			// Create ray starting at the light source's position and going through p
 			math::Ray ray(m_position, m_endPosition);
-			Vector3D v = ray.direction;
+			Vector3D v = ray.direction.normalized();
 			Vector3D u = (p - m_position).normalized();
 			if (u.dot(v) >= cos(m_angle / 2))
 			{

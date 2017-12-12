@@ -410,6 +410,7 @@
     <ClCompile Include="raytracers\ray-tracer-v2.cpp" />
     <ClCompile Include="raytracers\ray-tracer-v3.cpp" />
     <ClCompile Include="raytracers\ray-tracer-v4.cpp" />
+    <ClCompile Include="raytracers\ray-tracer-v5.cpp" />
     <ClCompile Include="renderers\renderer.cpp" />
     <ClCompile Include="renderers\standard-renderer.cpp" />
     <ClCompile Include="lights\light-ray.cpp" />
@@ -431,6 +432,7 @@
     <ClCompile Include="scripting\scripting.cpp" />
     <ClCompile Include="math\transformation2d.cpp" />
     <ClCompile Include="tasks\lambda-task.cpp" />
+    <ClCompile Include="tasks\parallel-task-scheduler.cpp" />
     <ClCompile Include="tasks\serial-task-scheduler.cpp" />
     <ClCompile Include="tests\main.cpp" />
     <ClCompile Include="util\base64.cpp" />
@@ -532,6 +534,7 @@
     <ClInclude Include="raytracers\ray-tracer-v2.h" />
     <ClInclude Include="raytracers\ray-tracer-v3.h" />
     <ClInclude Include="raytracers\ray-tracer-v4.h" />
+    <ClInclude Include="raytracers\ray-tracer-v5.h" />
     <ClInclude Include="raytracers\trace-result.h" />
     <ClInclude Include="easylogging++.h" />
     <ClInclude Include="imaging\bitmap.h" />
@@ -604,6 +607,7 @@
     <ClInclude Include="scripting\scripting.h" />
     <ClInclude Include="math\transformation2d.h" />
     <ClInclude Include="tasks\lambda-task.h" />
+    <ClInclude Include="tasks\parallel-task-scheduler.h" />
     <ClInclude Include="tasks\serial-task-scheduler.h" />
     <ClInclude Include="tasks\task-helpers.h" />
     <ClInclude Include="tasks\task-scheduler.h" />
