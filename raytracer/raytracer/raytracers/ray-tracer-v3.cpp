@@ -20,6 +20,7 @@ imaging::Color raytracer::raytracers::_private_::RayTracerV3::compute_specular(c
 	Vector3D n = hit.normal;
 	Vector3D i = (p - l).normalized();
 	auto r = i - 2 * (i.dot(n)) * n;
+	//auto r = ray.direction.reflect_by(n);
 	Point3D eye = ray.origin;
 	Vector3D v = (eye - p).normalized();
 	auto e = v.reflect_by(n);

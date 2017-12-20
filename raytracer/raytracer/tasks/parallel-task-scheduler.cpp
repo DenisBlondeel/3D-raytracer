@@ -2,6 +2,7 @@
 #include <thread>
 #include <atomic>
 #include <iostream>
+#include "tasks/ctpl/ctpl.h"
 using namespace tasks;
 using namespace std;
 
@@ -15,12 +16,14 @@ namespace
 	public:
 		void perform(std::vector<std::shared_ptr<Task>> tasks) const
 		{
-			atomic<int> inte;
+
 		}
+
 	};
+
 }
 
-TaskScheduler tasks::schedulers::parallel()
+tasks::TaskScheduler tasks::schedulers::parallel()
 {
 	return TaskScheduler(std::make_shared<ParallelTaskScheduler>());
 }

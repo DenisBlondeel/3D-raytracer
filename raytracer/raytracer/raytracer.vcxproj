@@ -411,6 +411,7 @@
     <ClCompile Include="raytracers\ray-tracer-v3.cpp" />
     <ClCompile Include="raytracers\ray-tracer-v4.cpp" />
     <ClCompile Include="raytracers\ray-tracer-v5.cpp" />
+    <ClCompile Include="raytracers\ray-tracer-v6.cpp" />
     <ClCompile Include="renderers\renderer.cpp" />
     <ClCompile Include="renderers\standard-renderer.cpp" />
     <ClCompile Include="lights\light-ray.cpp" />
@@ -440,6 +441,7 @@
     <ClCompile Include="util\misc.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\..\..\..\..\Visual Studio 2017\Projects\TestApplication\TestApplication\ctpl.h" />
     <ClInclude Include="animation\animation.h" />
     <ClInclude Include="animation\animations.h" />
     <ClInclude Include="animation\circular-animation.h" />
@@ -535,6 +537,7 @@
     <ClInclude Include="raytracers\ray-tracer-v3.h" />
     <ClInclude Include="raytracers\ray-tracer-v4.h" />
     <ClInclude Include="raytracers\ray-tracer-v5.h" />
+    <ClInclude Include="raytracers\ray-tracer-v6.h" />
     <ClInclude Include="raytracers\trace-result.h" />
     <ClInclude Include="easylogging++.h" />
     <ClInclude Include="imaging\bitmap.h" />
@@ -606,6 +609,7 @@
     <ClInclude Include="scripting\scripting-util.h" />
     <ClInclude Include="scripting\scripting.h" />
     <ClInclude Include="math\transformation2d.h" />
+    <ClInclude Include="tasks\ctpl\ctpl.h" />
     <ClInclude Include="tasks\lambda-task.h" />
     <ClInclude Include="tasks\parallel-task-scheduler.h" />
     <ClInclude Include="tasks\serial-task-scheduler.h" />
