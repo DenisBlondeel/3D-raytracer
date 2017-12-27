@@ -347,6 +347,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="animation\circular-animation.cpp" />
+    <ClCompile Include="primitives\cylinder-primitive.cpp" />
     <ClCompile Include="demos\basic-sample.cpp" />
     <ClCompile Include="demos\demo.cpp" />
     <ClCompile Include="lights\spot-light.cpp" />
@@ -487,6 +488,7 @@
     <ClInclude Include="chaiscript\utility\json.hpp" />
     <ClInclude Include="chaiscript\utility\json_wrap.hpp" />
     <ClInclude Include="chaiscript\utility\utility.hpp" />
+    <ClInclude Include="primitives\cylinder-primitive.h" />
     <ClInclude Include="demos\basic-sample.h" />
     <ClInclude Include="command-line-parser.h" />
     <ClInclude Include="demos\demo.h" />

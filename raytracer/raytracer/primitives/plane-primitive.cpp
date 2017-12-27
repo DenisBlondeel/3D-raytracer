@@ -84,6 +84,7 @@ namespace
             hit->local_position.uv = Point2D(hit->position.x(), hit->position.y());
             hit->normal = ray.origin.z() > 0 ? m_normal : -m_normal;
         }
+		
     };
 
 	class PlaneXZImplementation : public CoordinatePlaneImplementation

@@ -50,6 +50,7 @@ namespace
         std::vector<std::shared_ptr<Hit>> find_all_hits(const Ray& ray) const override
         {
             // See sphere formulae
+			
             double a = ray.direction.dot(ray.direction);
             double b = 2 * ray.direction.dot(ray.origin - Point3D());
             double c = (ray.origin - Point3D()).norm_sqr() - 1;

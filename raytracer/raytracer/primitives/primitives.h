@@ -6,3 +6,6 @@
 #include "primitives/decorator-primitive.h"
 #include "primitives/transformer-primitive.h"
 #include "primitives/triangle-primitive.h"
+#include "primitives/cylinder-primitive.h"
+
+
