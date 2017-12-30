@@ -16,7 +16,25 @@ namespace
 	public:
 		void perform(std::vector<std::shared_ptr<Task>> tasks) const
 		{
-
+			std::atomic<int> atomic = 0;
+			std::vector<std::thread> threads;
+			for (unsigned threadCount = 0; threadCount < 10; threadCount++)
+			{
+				auto perform = [&tasks, &atomic]
+				{
+					while (atomic < tasks.size())
+					{
+						tasks[atomic]->perform();
+						atomic++;
+					}
+				};
+				threads.push_back(std::move(std::thread(perform)));
+			}
+			for (auto& thread : threads)
+			{
+				thread.join();
+			}
+			
 		}
 
 	};
