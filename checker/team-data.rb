@@ -1,27 +1,37 @@
-team_member 'Nick' do
+team_member 'Lennert' do
   extension BasicSample
   extension BasicScripting
-  
+  extension PlaneXZ
+  #extension PlaneYZ
   extension RayTracerV1
+  
   extension RayTracerV2
   extension RayTracerV3
-
-  extension PrimitiveRotationX
-end
-
-team_member 'Kurt' do
-  extension BasicSample
-  extension BasicScripting
-  
   extension RayTracerV4
+  extension EasingLibrary
+  extension Triangle
+  extension MaterialVerticalLines
+  
+  extension Bounce
   extension RayTracerV5
+  extension SpotLight
+  
+  extension RayTracerV6
+  extension ParallelScheduler
+  
+  extension MeshReading
 end
 
-team_member 'Dale' do
+team_member 'Denis' do
+  extension BasicSample
+  extension BasicScripting
+end
+
+team_member 'Unkown' do
   extension BasicSample
   extension BasicScripting
 
-  extension RayTracerV6
+  extension RayTracerV1
 end
 
 

@@ -7,7 +7,7 @@ imaging::Color raytracer::raytracers::_private_::RayTracerV4::process_light_ray(
 {
 	Hit lightHit;
 	scene.root->find_first_positive_hit(lightRay.ray, &lightHit);
-	if ( interval(0.0, 0.99999).contains(lightHit.t) )
+	if(lightHit.t >= 0.0 && lightHit.t < 0.999999)//if ( interval(0.0, 0.99999).contains(lightHit.t) )
 	{
 		return colors::black();
 	}
