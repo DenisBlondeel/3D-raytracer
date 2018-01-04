@@ -82,6 +82,7 @@ imaging::Color raytracer::raytracers::_private_::RayTracerV6::compute_refraction
 	{
 		return colors::black();
 	}
+	// Added comment to see if everything still works
 }
 raytracer::RayTracer raytracer::raytracers::v6()
 {
