@@ -250,7 +250,3 @@ ModelManifest.xml
 
 # FAKE - F# Make
 .fake/
-
-=======
-
-.fake/
