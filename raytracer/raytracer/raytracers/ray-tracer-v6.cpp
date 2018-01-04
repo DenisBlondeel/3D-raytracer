@@ -40,12 +40,13 @@ TraceResult raytracer::raytracers::_private_::RayTracerV6::trace(const Scene& sc
 	}
 	return TraceResult::no_hit(ray);
 }
-imaging::Color raytracer::raytracers::_private_::RayTracerV6::compute_refraction(const Scene& scene, const MaterialProperties& mProp, const Hit& hit, const math::Ray& ray, double weight) const
+imaging::Color raytracer::raytracers::_private_::RayTracerV6::compute_refraction(const Scene & scene, const MaterialProperties & mProp, const Hit & hit, const math::Ray & ray, double weight) const
 {
 	if (mProp.transparency > 0)
 	{
 		Vector3D n = hit.normal;
-		Vector3D ox = 1 / mProp.refractive_index * (ray.direction - (ray.direction.dot(n) * n));
+		Vector3D i = ray.direction.normalized();
+		Vector3D ox = (1 / mProp.refractive_index) * (i - (i.dot(n) * n));
 		auto ox2 = 1 - pow(ox.norm(), 2);
 		if (ox2 < 0)
 		{
@@ -53,22 +54,23 @@ imaging::Color raytracer::raytracers::_private_::RayTracerV6::compute_refraction
 		}
 		Vector3D oy = -sqrt(ox2) * n;
 		Vector3D o = ox + oy;
-		Ray refrected_ray(hit.position, o);
+		Ray refrected_ray(hit.position + 0.000001 * o, o);
 		Hit exit_hit;
 		if (scene.root->find_first_positive_hit(refrected_ray, &exit_hit))
 		{
-			Vector3D cox = mProp.refractive_index / 1 * (refrected_ray.direction - (refrected_ray.direction.dot(exit_hit.normal) * exit_hit.normal));
+			Vector3D ci = refrected_ray.direction.normalized();
+			Vector3D cox = mProp.refractive_index / 1 * (ci - (ci.dot(exit_hit.normal) * exit_hit.normal));
 			auto cox2 = 1 - pow(cox.norm(), 2);
 			if (cox2 < 0)
 			{
-				Vector3D coy = -sqrt(cox2) * n;
-				Vector3D co = cox + coy;
-				Ray exit_ray(exit_hit.position, co);
-				return raytracer::raytracers::_private_::RayTracerV6::trace(scene, exit_ray, weight * mProp.transparency).color;
+				return colors::black();
 			}
 			else
 			{
-				return colors::black();
+				Vector3D coy = -sqrt(cox2) * n;
+				Vector3D co = cox + coy;
+				Ray exit_ray(exit_hit.position + 0.000001 * co, co);
+				return raytracer::raytracers::_private_::RayTracerV6::trace(scene, exit_ray, weight * mProp.transparency).color;
 			}
 		}
 		else
@@ -76,14 +78,11 @@ imaging::Color raytracer::raytracers::_private_::RayTracerV6::compute_refraction
 			return colors::black();
 		}
 	}
-	return colors::black();
+	else
+	{
+		return colors::black();
+	}
 }
-/*
-void raytracer::raytracers::_private_::RayTracerV6::compute_refracted_ray(double n1, double N2, Vector3D*) const
-{
-
-}
-*/
 raytracer::RayTracer raytracer::raytracers::v6()
 {
 	return raytracer::RayTracer(std::make_shared<raytracer::raytracers::_private_::RayTracerV6>());

@@ -1,3 +1,4 @@
+
 #ifndef TEST_BUILD
 
 #include "easylogging++.h"
