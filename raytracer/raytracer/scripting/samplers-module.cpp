@@ -21,6 +21,14 @@ namespace
 		{
 			return samplers::random(points);
 		}
+		Sampler stratified(int N, int M) const
+		{
+			return samplers::stratified(N, M);
+		}
+		Sampler jittered(int N, int M) const
+		{
+			return samplers::jittered(N, M);
+		}
     };
 }
 
@@ -36,6 +44,8 @@ ModulePtr raytracer::scripting::_private_::create_samplers_module()
 #   define BIND(NAME)  module->add(fun(&SamplerLibrary::NAME), #NAME)
     BIND(single);
 	BIND(random);
+	BIND(stratified);
+	BIND(jittered);
 #   undef BIND
 
     return module;

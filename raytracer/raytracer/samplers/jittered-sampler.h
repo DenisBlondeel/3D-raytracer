@@ -8,7 +8,7 @@ namespace raytracer
 	namespace samplers
 		 {
 		
-			Sampler stratified(int N, int M);
+			Sampler jittered(int N, int M);
 		
 			
 			}
