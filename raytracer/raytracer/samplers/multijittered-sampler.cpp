@@ -17,7 +17,7 @@ namespace
 
 		std::vector<Point2D> sample(const math::Rectangle2D& rectangle)const override
 		{
-			std::vector<Position2D> legalpositions;
+			std::vector<Position2D> legalpositions = createLegalPositionPool(legalpositions);
 			int pointer = 0;
 			std::vector<Point2D> result;
 			Rasterizer rast(rectangle, N, N);
@@ -55,7 +55,7 @@ namespace
 			}
 		}
 
-		std::vector<Position2D> createLegalPositionPool(std::vector<Position2D> legalPositions)
+		std::vector<Position2D> createLegalPositionPool(std::vector<Position2D> legalPositions)const
 		{
 			for (int i = 0; i < N; i++)
 			{
