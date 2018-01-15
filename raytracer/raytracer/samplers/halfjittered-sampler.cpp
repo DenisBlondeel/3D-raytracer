@@ -47,5 +47,5 @@ namespace
 
 Sampler raytracer::samplers::halfjittered(int N, int M)
 {
-	return	Sampler(std::make_shared<HalfJittered>(N, M))
+	return	Sampler(std::make_shared<HalfJittered>(N, M));	
 }
