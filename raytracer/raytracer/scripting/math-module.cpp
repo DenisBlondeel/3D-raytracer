@@ -78,6 +78,7 @@ namespace
 	{
 		EasingFunction linear() const { return math::functions::easing::linear(); }
 		EasingFunction bounce(int number,int absorbation) const { return math::functions::easing::bounce(number,absorbation); }
+		EasingFunction elastic(int number_of_bounces, int decay) const{ return math::functions::easing::elastic(number_of_bounces, decay); }
 		//EasingFunction stretch(EasingFunction function, const Interval<double>& x_range, const Interval<double>& y_range) const { return math::functions::easing::stretch(EasingFunction function, const Interval<double>& x_range, const Interval<double>& y_range); }
 		//EasingFunction stretch_in_space() const { return math::functions::easing::stretch_in_space(); }
 		//EasingFunction stretch_in_time() const { return math::functions::easing::stretch_in_time(); }
@@ -90,6 +91,7 @@ namespace
 #   define BIND(NAME)  module.add(fun(&EasingLibrary::NAME), #NAME)
 		BIND(linear);
 		BIND(bounce);
+		BIND(elastic);
 
 #   undef BIND
 

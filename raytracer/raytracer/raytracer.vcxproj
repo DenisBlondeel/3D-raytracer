@@ -348,6 +348,7 @@
   <ItemGroup>
     <ClCompile Include="animation\circular-animation.cpp" />
     <ClCompile Include="imaging\ppm-format.cpp" />
+    <ClCompile Include="math\functions\easing\elastic-easing-function.cpp" />
     <ClCompile Include="pipeline\ppm-consumer.cpp" />
     <ClCompile Include="primitives\cylinder-primitive.cpp" />
     <ClCompile Include="demos\basic-sample.cpp" />
@@ -495,6 +496,7 @@
     <ClInclude Include="chaiscript\utility\json_wrap.hpp" />
     <ClInclude Include="chaiscript\utility\utility.hpp" />
     <ClInclude Include="imaging\ppm-format.h" />
+    <ClInclude Include="math\functions\easing\elastic-easing-function.h" />
     <ClInclude Include="pipeline\ppm-consumer.h" />
     <ClInclude Include="primitives\cylinder-primitive.h" />
     <ClInclude Include="demos\basic-sample.h" />
