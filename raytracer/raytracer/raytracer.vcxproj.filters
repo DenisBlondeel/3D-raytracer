@@ -312,6 +312,12 @@
     <ClCompile Include="samplers\multijittered-sampler.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="imaging\ppm-format.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="pipeline\ppm-consumer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="imaging\bitmap.h">
@@ -879,6 +885,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="samplers\multijittered-sampler.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="imaging\ppm-format.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="pipeline\ppm-consumer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
