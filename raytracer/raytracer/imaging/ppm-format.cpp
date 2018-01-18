@@ -19,18 +19,20 @@ namespace imaging
 
 	void write_text_ppm(const Bitmap& bitmap, std::ostream& out)
 	{
-		out << "P6"; out << "\n";
+		out << "P3"; out << "\n";
 		out << bitmap.width(); out << " ";
 		out << bitmap.height(); out << "\n";
 		out << 255; out << "\n"; 
 
-		for (int i = 0; i<bitmap.height(); i++)
-			for (int j = 0; j<bitmap.width(); j++)
+		for (int i = 0; i < bitmap.height(); i++) 
+		{
+			for (int j = 0; j < bitmap.width(); j++)
 			{
 				RGBColor c = RGBColor(bitmap[Position2D(i, j)]);
 
-				out << c.r << " " << c.g << " " << c.b << " \n";
+				out <<(int)c.r << " " << (int)c.g << " " << (int)c.b << "\n";
 			}
+		}
 
 	}
 
