@@ -28,7 +28,7 @@ namespace imaging
 		{
 			for (int j = 0; j < bitmap.width(); j++)
 			{
-				RGBColor c = RGBColor(bitmap[Position2D(i, j)]);
+				RGBColor c = RGBColor(bitmap[Position2D(j, i)]);
 
 				out <<(int)c.r << " " << (int)c.g << " " << (int)c.b << "\n";
 			}
