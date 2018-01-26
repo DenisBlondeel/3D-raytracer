@@ -16,10 +16,11 @@ namespace
 	public:
 		void perform(std::vector<std::shared_ptr<Task>> tasks) const
 		{
+			// Zodat threads niet undefined gedrag kunnen veroorzaken
 			std::atomic<int> atomic = 0;
 			std::vector<std::thread> threads;
-			for (unsigned threadCount = 0; threadCount < 10; threadCount++)
-			{
+			for (int threadCount = 0; threadCount < 10; threadCount++)
+			{ 
 				auto perform = [&tasks, &atomic]
 				{
 					while (atomic < tasks.size())

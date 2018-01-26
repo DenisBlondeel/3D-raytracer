@@ -40,7 +40,6 @@ def scene_at(now)
   var theta = Animations.animate(0, 360, seconds(1))
   
  primitives.push_back(decorate(sphere_material,translate(vec(cos(degrees(theta[now])),0,sin(degrees(theta[now]))),sphere())))
- //primitives.push_back( decorate(small_sphere_material,sphere()))
 
   var root = union(primitives)
 

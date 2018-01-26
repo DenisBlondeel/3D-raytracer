@@ -1,8 +1,8 @@
 team_member 'Lennert' do
   extension BasicSample
   extension BasicScripting
-  extension PlaneXZ
-  #extension PlaneYZ
+  #extension PlaneXZ
+  extension PlaneYZ
   extension RayTracerV1
   
   extension RayTracerV2
