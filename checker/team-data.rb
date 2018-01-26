@@ -25,6 +25,24 @@ end
 team_member 'Denis' do
   extension BasicSample
   extension BasicScripting
+  extension RayTracerV1
+  
+  extention SquareXY
+  #extension SquareXZ
+  #extension SquareYZ
+  
+  extension RandomSampler
+  extension StratifiedSampler
+  extension JitteredSampler
+  extension HalfJitteredSampler
+  extension NRooksSampler
+  extension MultijitteredSampler
+  
+  extension MaterialCheckered2D
+  
+  extension Ppm
+  extension Elastic
+  extension Quadratic
 end
 
 team_member 'Unkown' do
