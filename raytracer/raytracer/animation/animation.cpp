@@ -30,4 +30,3 @@ Animation<Point3D> animation::basic(Point3D from, Point3D to, const Duration& du
 
 	return make_animation(from_lambda(lambda), duration);
 }
-
