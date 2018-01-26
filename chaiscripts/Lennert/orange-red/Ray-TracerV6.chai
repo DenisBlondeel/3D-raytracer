@@ -8,7 +8,7 @@ def scene_at(now)
                                             "reflectivity": 0.5 ] )
 
   var left_wall_material = Materials.uniform( [ "ambient": Colors.red() * 0.1,
-                                                "diffuse": Colors.red() * 0.8 ] )
+                                                   "diffuse": Colors.red() * 0.8])
 
   var right_wall_material = Materials.uniform( [ "ambient": Colors.green() * 0.1,
                                                  "diffuse": Colors.green() * 0.8 ] )
@@ -18,12 +18,12 @@ def scene_at(now)
 
   var ceiling_material = floor_material
 
-  var sphere_material = Materials.uniform( [ "ambient": Colors.blue() * 0.1,
-                                             "diffuse": Colors.blue() * 0.8,
+  var sphere_material = Materials.uniform( [ "ambient": Colors.white() * 0.1,
+                                             "diffuse": Colors.white() * 0.8,
                                              "specular": Colors.white() * 0.8,
                                              "specular_exponent": 10,
                                              "transparency": 0.7,
-                                             "refractive_index": 2.5 ] )
+                                             "refractive_index": 2.5])
 
   var small_sphere_material = Materials.uniform( [ "ambient": Colors.white() * 0.1,
                                                    "diffuse": Colors.white() * 0.8,
@@ -39,7 +39,7 @@ def scene_at(now)
 
   var theta = Animations.animate(0, 360, seconds(1))
   
-  primitives.push_back(decorate(sphere_material,translate(vec(cos(degrees(theta[now])),0,sin(degrees(theta[now]))),sphere())))
+ primitives.push_back(decorate(sphere_material,translate(vec(cos(degrees(theta[now])),0,sin(degrees(theta[now]))),sphere())))
  //primitives.push_back( decorate(small_sphere_material,sphere()))
 
   var root = union(primitives)
@@ -49,12 +49,12 @@ def scene_at(now)
   create_scene(camera, root, lights)
 }
 
-var raytracer   = Raytracers.v(2)
+var raytracer   = Raytracers.v(6)
 var renderer    = Renderers.standard( [ "width": 500,
                                         "height": 500,
                                         "sampler": Samplers.single(),
                                         "ray_tracer": raytracer ] )
-
+                                        
 pipeline( scene_animation(scene_at, seconds(1)),
           [ Pipeline.animation(30),
             Pipeline.renderer(renderer),
