@@ -23,6 +23,38 @@ namespace
 		virtual double calculateC(const Ray& ray) const = 0;
 	public:
 
+		bool find_first_positive_hit(const Ray& ray, Hit* hit) const override
+		{
+			assert(hit != nullptr);
+
+			double a = calculateA(ray);
+			double b = calculateB(ray);
+			double c = calculateC(ray);
+
+			QuadraticEquation qeq(a, b, c);
+
+			if (qeq.has_solutions())
+			{
+				double t1 = qeq.x1();
+				double t2 = qeq.x2();
+				double t;
+
+				// Find smallest positive t-value 
+				if (smallest_greater_than_zero(t1, t2, &t))
+				{
+					// Check that our new t is better than the pre-existing t
+					if (t < hit->t)
+					{
+						initialize_hit(hit, ray, t);
+
+						return true;
+					}
+				}
+			}
+
+			return false;
+		}
+
 		std::vector<std::shared_ptr<Hit>> find_all_hits(const Ray& ray) const override {
 			
 			
@@ -102,15 +134,21 @@ namespace
 
 			return Box(range, range, range);
 		}
+
+
 		double calculateA(const Ray& ray) const {
 			return  Vector2D(ray.direction.x(), ray.direction.y()).dot(Vector2D(ray.direction.x(), ray.direction.y()));
 		}
+
 		double calculateB(const Ray& ray) const {
 			return  2 * Vector2D(ray.direction.x(), ray.direction.y()).dot(Point2D(ray.origin.x(), ray.origin.y()) - Point2D(0, 0));
 		}
+
 		double calculateC(const Ray& ray) const {
 			return  (Point2D(ray.origin.x(), ray.origin.y()) - Point2D(0, 0)).dot(Point2D(ray.origin.x(), ray.origin.y()) - Point2D(0, 0)) - 1;
 		}
+
+
 	protected:
 		void initialize_hit(Hit* hit, const Ray& ray, double t) const override
 		{
@@ -143,15 +181,21 @@ namespace
 
 			return Box(range, range, range);
 		}
+
+
 		double calculateA(const Ray& ray) const {
 			return  Vector2D(ray.direction.x(), ray.direction.z()).dot(Vector2D(ray.direction.x(), ray.direction.z()));
 		}
+
 		double calculateB(const Ray& ray) const {
 			return  2 * Vector2D(ray.direction.x(), ray.direction.z()).dot(Point2D(ray.origin.x(), ray.origin.z()) - Point2D(0, 0));
 		}
+
 		double calculateC(const Ray& ray) const {
 			return  (Point2D(ray.origin.x(), ray.origin.z()) - Point2D(0, 0)).dot(Point2D(ray.origin.x(), ray.origin.z()) - Point2D(0, 0)) - 1;
 		}
+
+
 	protected:
 		void initialize_hit(Hit* hit, const Ray& ray, double t) const override
 		{
@@ -185,15 +229,21 @@ namespace
 
 			return Box(range, range, range);
 		}
+
+
 		double calculateA(const Ray& ray) const {
 			return  Vector2D(ray.direction.y(), ray.direction.z()).dot(Vector2D(ray.direction.y(), ray.direction.z()));
 		}
+
 		double calculateB(const Ray& ray) const {
 			return  2 * Vector2D(ray.direction.y(), ray.direction.z()).dot(Point2D(ray.origin.y(), ray.origin.z()) - Point2D(0, 0));
 		}
+
 		double calculateC(const Ray& ray) const {
 			return  (Point2D(ray.origin.y(), ray.origin.z()) - Point2D(0, 0)).dot(Point2D(ray.origin.y(), ray.origin.z()) - Point2D(0, 0)) - 1;
 		}
+
+
 	protected:
 		void initialize_hit(Hit* hit, const Ray& ray, double t) const override
 		{

@@ -45,6 +45,9 @@ ModulePtr raytracer::scripting::_private_::create_primitives_module()
 	BIND_DIRECTLY(cylinder_along_z);
 	BIND_DIRECTLY(cylinder_along_y);
 	BIND_DIRECTLY(cylinder_along_x);
+	BIND_DIRECTLY(cone_along_z);
+	BIND_DIRECTLY(cone_along_y);
+	BIND_DIRECTLY(cone_along_x);
     BIND_DIRECTLY(xy_plane);
 	BIND_DIRECTLY(xz_plane);
 	BIND_DIRECTLY(yz_plane);
