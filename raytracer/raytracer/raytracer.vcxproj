@@ -347,7 +347,11 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="animation\circular-animation.cpp" />
-    <ClCompile Include="primitives\cone-primitive.cpp" />
+    <ClCompile Include="imaging\ppm-format.cpp" />
+    <ClCompile Include="math\functions\checkered-pattern.cpp" />
+    <ClCompile Include="math\functions\easing\elastic-easing-function.cpp" />
+    <ClCompile Include="math\functions\easing\quadratic-function.cpp" />
+    <ClCompile Include="pipeline\ppm-consumer.cpp" />
     <ClCompile Include="primitives\cylinder-primitive.cpp" />
     <ClCompile Include="demos\basic-sample.cpp" />
     <ClCompile Include="demos\demo.cpp" />
@@ -404,6 +408,7 @@
     <ClCompile Include="primitives\decorator-primitive.cpp" />
     <ClCompile Include="primitives\sphere-primitive.cpp" />
     <ClCompile Include="math\rectangle2d.cpp" />
+    <ClCompile Include="primitives\square-primitive.cpp" />
     <ClCompile Include="primitives\transformer-primitive.cpp" />
     <ClCompile Include="primitives\triangle-primitive.cpp" />
     <ClCompile Include="primitives\union-primitive.cpp" />
@@ -417,6 +422,10 @@
     <ClCompile Include="renderers\renderer.cpp" />
     <ClCompile Include="renderers\standard-renderer.cpp" />
     <ClCompile Include="lights\light-ray.cpp" />
+    <ClCompile Include="samplers\halfjittered-sampler.cpp" />
+    <ClCompile Include="samplers\jittered-sampler.cpp" />
+    <ClCompile Include="samplers\multijittered-sampler.cpp" />
+    <ClCompile Include="samplers\nrooks-sampler.cpp" />
     <ClCompile Include="samplers\random-sampler.cpp" />
     <ClCompile Include="samplers\sampler.cpp" />
     <ClCompile Include="samplers\single-sampler.cpp" />
@@ -489,7 +498,11 @@
     <ClInclude Include="chaiscript\utility\json.hpp" />
     <ClInclude Include="chaiscript\utility\json_wrap.hpp" />
     <ClInclude Include="chaiscript\utility\utility.hpp" />
-    <ClInclude Include="primitives\cone-primitive.h" />
+    <ClInclude Include="imaging\ppm-format.h" />
+    <ClInclude Include="math\functions\checkered-pattern.h" />
+    <ClInclude Include="math\functions\easing\elastic-easing-function.h" />
+    <ClInclude Include="math\functions\easing\quadratic-function.h" />
+    <ClInclude Include="pipeline\ppm-consumer.h" />
     <ClInclude Include="primitives\cylinder-primitive.h" />
     <ClInclude Include="demos\basic-sample.h" />
     <ClInclude Include="command-line-parser.h" />
@@ -535,6 +548,7 @@
     <ClInclude Include="pipeline\text-writer-consumer.h" />
     <ClInclude Include="pipeline\wif-consumer.h" />
     <ClInclude Include="pipeline\wif-processor.h" />
+    <ClInclude Include="primitives\square-primitive.h" />
     <ClInclude Include="primitives\triangle-primitive.h" />
     <ClInclude Include="raytracers\ray-tracer-v1.h" />
     <ClInclude Include="raytracers\ray-tracer-v2.h" />
@@ -593,6 +607,10 @@
     <ClInclude Include="renderers\renderers.h" />
     <ClInclude Include="renderers\standard-renderer.h" />
     <ClInclude Include="lights\light-ray.h" />
+    <ClInclude Include="samplers\halfjittered-sampler.h" />
+    <ClInclude Include="samplers\jittered-sampler.h" />
+    <ClInclude Include="samplers\multijittered-sampler.h" />
+    <ClInclude Include="samplers\nrooks-sampler.h" />
     <ClInclude Include="samplers\random-sampler.h" />
     <ClInclude Include="samplers\sampler.h" />
     <ClInclude Include="samplers\samplers.h" />

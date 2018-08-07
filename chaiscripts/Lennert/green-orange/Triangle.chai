@@ -1,0 +1,35 @@
+def scene_at(now)
+{
+  var camera = Cameras.perspective( [ "eye":pos(0,0,8),
+                                      "look_at": pos(0,0,0) ] )
+
+  var sphere_material = Materials.uniform( [ "ambient": Colors.blue() * 0.5,
+                                             "diffuse": Colors.blue() * 0.8,
+                                             "specular": Colors.white() * 0.8,
+                                             "specular_exponent": 10,
+                                             "transparency": 0.7,
+                                             "refractive_index": 2.5 ] )
+
+ var p1 = pos(0,0,0)
+ var p2 = pos(1,0,0)
+ var p3 = pos(0,1,0)
+  var root = decorate(sphere_material, triangle(p1,p2,p3))
+
+  var lights = [ Lights.omnidirectional( pos(0, 5, 0), Colors.white() ), Lights.omnidirectional( pos(0, -5, 0), Colors.white() ) ]
+
+  create_scene(camera, root, lights)
+}
+
+var raytracer   = Raytracers.v(2)
+
+var renderer    = Renderers.standard( [ "width": 500,
+                                       "height": 500,
+                                       "sampler": Samplers.single(),
+                                       "ray_tracer": raytracer ] )
+                                       
+pipeline( scene_animation(scene_at, seconds(1)),
+          [ Pipeline.animation(1),
+            Pipeline.renderer(renderer),
+            Pipeline.wif(),
+            Pipeline.base64(),
+            Pipeline.stdout() ] )

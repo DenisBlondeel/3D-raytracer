@@ -174,6 +174,11 @@ namespace
             return wrap(pipeline::wif());
         }
 
+		std::shared_ptr<Wrapper> ppm() const
+		{
+			return wrap(pipeline::ppm());
+		}
+
         std::shared_ptr<Wrapper> base64() const
         {
             return wrap(pipeline::base64());
@@ -230,6 +235,7 @@ ModulePtr raytracer::scripting::_private_::create_pipeline_module()
     BIND(null_bitmap_consumer);
     BIND(base64);
     BIND(stdout);
+	BIND(ppm);
 #   undef BIND_AS
 #   undef BIND
 
