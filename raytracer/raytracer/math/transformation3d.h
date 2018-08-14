@@ -21,5 +21,7 @@ namespace math
     namespace transformations
     {
         Transformation3D translation(const Vector3D&);
+		Transformation3D scale(double , double , double );
+
     }
 }

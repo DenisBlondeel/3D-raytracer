@@ -27,7 +27,7 @@ team_member 'Denis' do
   extension BasicScripting
   extension RayTracerV1
   
-  extention SquareXY
+  extension SquareXY
   #extension SquareXZ
   #extension SquareYZ
   
@@ -45,11 +45,21 @@ team_member 'Denis' do
   extension Quadratic
 end
 
-team_member 'Unkown' do
+team_member 'Arno' do
   extension BasicSample
   extension BasicScripting
-
   extension RayTracerV1
+  extension CylinderAlongXOptimized
+  extension PrimitiveScaling
+
+  extension CylinderAlongX
+  extension ConeAlongXOptimized
+  extension Quaternions
+  extension CircularAnimation
+  extension DirectionalLight 
+
+  extension ConeAlongX
+  
 end
 
 
