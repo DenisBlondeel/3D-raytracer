@@ -26,6 +26,10 @@ namespace
 		{
 			return lights::directional(direction, c);
 		}
+		LightSource area(const Rectangle3D& rectangle, const Sampler& sampler, const Color& color) const
+		{
+			return lights::area(rectangle, sampler,color);
+		}
     };
 }
 
@@ -43,6 +47,7 @@ ModulePtr raytracer::scripting::_private_::create_lights_module()
     BIND(omnidirectional);
 	BIND(spot);
 	BIND(directional);
+	BIND(area);
 #   undef BIND_AS
 #   undef BIND
 

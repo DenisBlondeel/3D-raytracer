@@ -55,6 +55,10 @@ namespace
 		{
 			return raytracer::materials::checkered2d(m1, m2);
 		}
+		Material translate(const Vector2D translate, const Material mat) const 
+		{
+			return raytracer::materials::translate(translate, mat);
+		}
 		
     };
 }
@@ -83,6 +87,7 @@ ModulePtr raytracer::scripting::_private_::create_materials_module()
     BIND(horizontal_lines);
 	BIND(vertical_lines);
 	BIND(checkered2d);
+	BIND(translate);
 #   undef BIND
 #   undef BIND_AS
 

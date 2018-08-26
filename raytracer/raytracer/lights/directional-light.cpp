@@ -11,18 +11,17 @@ namespace {
 		DirectionalLight(const math::Vector3D& direction, const imaging::Color& color) : m_direction(direction), m_color(color){}
 
 		std::vector<LightRay> lightrays_to(const math::Point3D& point) const override {
+
+			math::Vector3D v = m_direction * 100;
 			
-			const math::Ray ray(point - m_direction , point);
-			
-			std::vector<LightRay> v;
-			
-			
-			//if (LightRay(ray, m_color).color != colors::black()) {
-				v.push_back(LightRay(ray, m_color));
-			//}
+			math::Ray ray(point - v  , point );
 			
 			
-			return v;
+			return std::vector<LightRay> { LightRay(ray, m_color)};
+			
+				
+			
+			
 		}
 
 

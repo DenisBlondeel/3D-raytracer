@@ -336,6 +336,12 @@
     <ClCompile Include="lights\directional-light.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="lights\area-light.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="materials\material-2d-transformer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="imaging\bitmap.h">
@@ -927,6 +933,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="lights\directional-light.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="lights\area-light.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="materials\material-2d-transformer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

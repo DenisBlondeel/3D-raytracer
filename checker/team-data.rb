@@ -57,8 +57,11 @@ team_member 'Arno' do
   extension Quaternions
   extension CircularAnimation
   extension DirectionalLight 
-
+  extension AreaLight
+  
   extension ConeAlongX
+  extension MaterialTransformer2D
+  extension MaterialTranslate2D
   
 end
 
