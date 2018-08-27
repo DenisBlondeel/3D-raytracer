@@ -34,7 +34,7 @@ EasingFunction math::functions::easing::quadratic_inout()
 
 		if (t <= 0.5)
 		{
-			return pow(t, 2);
+			return 2 * pow(t, 2);
 		}
 		else
 		{
