@@ -15,4 +15,9 @@ public class FaceDB
 	{
 		this.faces.add(f);
 	}
+	
+	public List<Face> getFaces()
+	{
+		return faces;
+	}
 }

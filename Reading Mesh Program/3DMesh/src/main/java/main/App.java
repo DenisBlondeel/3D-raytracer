@@ -13,6 +13,8 @@ import org.smurn.jply.ElementType;
 import org.smurn.jply.PlyReader;
 import org.smurn.jply.PlyReaderFile;
 
+import domain.Accelerator;
+import domain.Box;
 import domain.Face;
 import domain.FaceDB;
 import domain.Vertex;
@@ -22,12 +24,15 @@ import domain.VertexDB;
  * Console application that prints out the positions of all vertices.
  */
 public class App {
+	
+	public static FaceDB fdb = new FaceDB();
+
 
     public static void main(String[] args) throws IOException {
     	try
     	{
     		JSONArray result = new JSONArray();
-    		File txt = new File("result.txt");
+    		File txt = new File("denis.txt");
     		PrintWriter writer = new PrintWriter(txt);
     		writer.print("");
     		writer.close();
@@ -52,11 +57,14 @@ public class App {
             reader = ply.nextElementReader();
     		}
             ply.close();
-            printToTxt(txt,result);
+        	Accelerator accelerator = new Accelerator(fdb);
+            printToFile(txt, accelerator);
+            //printToTxt(txt,result);
         }
     	catch(Exception e)
     	{
     		System.out.println(e.getMessage());
+    		e.printStackTrace();
     	}
     }
 
@@ -101,9 +109,33 @@ public class App {
     		Vertex v2 = vdb.getVertex(indices[1]);
     		Vertex v3 = vdb.getVertex(indices[2]);
     		Face f = new Face(v1, v2, v3);
-    		//fdb.addFace(f);
+    		fdb.addFace(f);
     		result.put(f.toJSON());
     		triangle = reader.readElement();
     	}
     }
+    
+    private static void printToFile(File f, Accelerator accelerator)
+    {
+    	try
+    	{
+    	  BufferedWriter outputWriter = null;
+    	  
+    	  outputWriter = new BufferedWriter(new FileWriter(f));
+    	  
+    	  for(Box box : accelerator.getEndNodes())
+    	  {
+    		  outputWriter.write(box.toJSON().toString());
+    		  outputWriter.newLine();
+    	  }
+    	  
+    	  outputWriter.flush();
+    	  outputWriter.close();
+    	}
+    	catch(Exception e)
+    	{
+    		System.out.println(e.getMessage());
+    	}
+    }
+    
 }
