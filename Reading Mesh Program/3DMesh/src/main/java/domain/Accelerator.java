@@ -11,7 +11,7 @@ public class Accelerator {
 	public Accelerator(FaceDB fdb)
 	{
 		this.fdb = fdb;
-		optimize(5);
+		optimize(3);
 	}
 	
 	public Vertex findSmallest(FaceDB db)
@@ -104,6 +104,17 @@ public class Accelerator {
 			boxList.addAll(temp);
 		}
 		System.out.println("There are : " + boxList.size() + " boxes");
+		for(Box box : boxList)
+		{
+			if(!box.hasChilden())
+			{
+				
+				System.out.println("In this box; " + box.getTriangleCollection().getFaces().size() + " trizngles");
+				System.out.println("BEGIN " + box.getBegin().toJSON());
+				System.out.println("EIND " + box.getEnd().toJSON());
+				System.out.println("");
+			}
+		}
 	}
 
 }

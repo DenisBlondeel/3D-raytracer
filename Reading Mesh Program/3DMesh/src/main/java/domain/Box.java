@@ -7,11 +7,10 @@ import org.json.JSONObject;
 
 public class Box {
 	
-	private Vertex begin, end;
+	private Vertex begin;
+	private Vertex end;
 	
 	private FaceDB fdb;
-	
-	private VertexDB db;
 	
 	private int depth = 0;
 	
@@ -63,10 +62,6 @@ public class Box {
 		return hasChildren;
 	}
 	
-	public VertexDB getDb()
-	{
-		return db;
-	}
 	public void setDepth(int depth)
 	{
 		this.depth = depth;
@@ -91,11 +86,17 @@ public class Box {
 	public void split()
 	{
 		Vertex newEnd = new Vertex(0, end.getX()/2, end.getY(), end.getZ());
-		boxL = new Box(begin, newEnd, depth);
+		
+		Vertex betterEnd = new Vertex(0,(end.getX() + begin.getX())/2, end.getY(), end.getZ());
+		
+		boxL = new Box(begin, betterEnd, depth);
 		boxL.setFaceDB(facesInBox(boxL, fdb));
 		
 		Vertex newBegin = new Vertex(0, end.getX()/2, begin.getY(), begin.getZ());
-		boxR = new Box(newBegin, end, depth);
+		
+		Vertex betterBegin = new Vertex(0,(end.getX() + begin.getX())/2, begin.getY(), begin.getZ());
+		
+		boxR = new Box(betterBegin, end, depth);
 		boxR.setFaceDB(facesInBox(boxR, fdb));
 		
 		hasChildren = true;
@@ -136,6 +137,25 @@ public class Box {
 		{
 			return false;
 		}
+		
+		/*if(fV1.getX() < box.getBegin().getX() && fV1.getX() > box.getEnd().getX() && fV1.getY() < box.getBegin().getY() && fV1.getY() > box.getEnd().getY() && fV1.getZ() < box.getBegin().getZ() && fV1.getZ() > box.getEnd().getZ())
+		{
+			return false;
+		}
+		
+		else if(fV2.getX() < box.getBegin().getX() && fV2.getX() > box.getEnd().getX() && fV2.getY() < box.getBegin().getY() && fV2.getY() > box.getEnd().getY() && fV2.getZ() < box.getBegin().getZ() && fV2.getZ() > box.getEnd().getZ())
+		{
+			return false;
+		}
+		
+		else if(fV3.getX() < box.getBegin().getX() && fV3.getX() > box.getEnd().getX() && fV3.getY() < box.getBegin().getY() && fV3.getY() > box.getEnd().getY() && fV3.getZ() < box.getBegin().getZ() && fV3.getZ() > box.getEnd().getZ())
+		{
+			return false;
+		}
+		else
+		{
+			return true;
+		}*/
 	}
 	public JSONObject toJSON()
 	{
