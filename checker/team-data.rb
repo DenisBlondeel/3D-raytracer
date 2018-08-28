@@ -43,6 +43,8 @@ team_member 'Denis' do
   extension Ppm
   extension Elastic
   extension Quadratic
+  
+  extension MeshOptimizing 
 end
 
 team_member 'Arno' do
