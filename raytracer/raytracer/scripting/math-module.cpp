@@ -82,6 +82,9 @@ namespace
 		EasingFunction quadratic_in() const { return math::functions::easing::quadratic_in(); }
 		EasingFunction quadratic_out() const { return math::functions::easing::quadratic_out(); }
 		EasingFunction quadratic_inout() const { return math::functions::easing::quadratic_inout(); }
+		EasingFunction quintic_in() const { return math::functions::easing::quintic_in(); }
+		EasingFunction quintic_out() const { return math::functions::easing::quintic_out(); }
+		EasingFunction quintic_inout() const { return math::functions::easing::quintic_inout(); }
 		//EasingFunction stretch(EasingFunction function, const Interval<double>& x_range, const Interval<double>& y_range) const { return math::functions::easing::stretch(EasingFunction function, const Interval<double>& x_range, const Interval<double>& y_range); }
 		//EasingFunction stretch_in_space() const { return math::functions::easing::stretch_in_space(); }
 		//EasingFunction stretch_in_time() const { return math::functions::easing::stretch_in_time(); }
@@ -98,6 +101,9 @@ namespace
 		BIND(quadratic_in);
 		BIND(quadratic_out);
 		BIND(quadratic_inout);
+		BIND(quintic_in);
+		BIND(quintic_out);
+		BIND(quintic_inout);
 
 #   undef BIND
 

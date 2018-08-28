@@ -16,15 +16,13 @@ namespace {
 			std::vector<LightRay> rays = {};
 			
 			for (int i = 0; i < picked.size(); i++) {
-				//Point3D p = m_area.project(picked.at(0));
-				//if (Ray(p, point).at(1) == point) {
+				Point3D p = m_area.project(picked.at(i));
+				//if (Ray(p, point).at(1) == point && Ray(p, point).at(0) == p) {
 				
-				LightRay lr(Ray(m_area.project(picked.at(i)), point - m_area.project(picked.at(i))), m_color);
+				LightRay lr(Ray(m_area.project(picked.at(i)), point ), m_color);
 				rays.push_back(lr);
 				//}
-				//else {
-					
-				//}
+				
 			}
 			
 			
