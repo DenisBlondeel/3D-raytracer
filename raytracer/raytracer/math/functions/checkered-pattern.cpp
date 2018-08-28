@@ -18,3 +18,5 @@ Function<bool(const Point2D&)> math::functions::checkered2d()
 
 	return from_lambda<bool, const Point2D&>(function);
 }
+
+

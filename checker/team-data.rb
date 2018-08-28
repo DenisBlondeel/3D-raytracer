@@ -54,15 +54,17 @@ team_member 'Arno' do
 
   extension CylinderAlongX
   extension ConeAlongXOptimized
-  extension Quaternions
-  extension CircularAnimation
   extension DirectionalLight 
-  extension AreaLight
+  extension MaterialGrid2d
   
   extension ConeAlongX
   extension MaterialTransformer2D
   extension MaterialTranslate2D
-  
+ 
+  extension Quintic
+  extension FisheyeCamera
+ 
+  extension MeshRendering
 end
 
 

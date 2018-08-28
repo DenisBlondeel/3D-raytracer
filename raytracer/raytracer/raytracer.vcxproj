@@ -347,13 +347,16 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="animation\circular-animation.cpp" />
+    <ClCompile Include="cameras\fisheye-camera.cpp" />
     <ClCompile Include="imaging\ppm-format.cpp" />
     <ClCompile Include="lights\area-light.cpp" />
     <ClCompile Include="lights\directional-light.cpp" />
     <ClCompile Include="materials\material-2d-transformer.cpp" />
     <ClCompile Include="math\functions\checkered-pattern.cpp" />
+    <ClCompile Include="math\functions\easing\quintic-function.cpp" />
     <ClCompile Include="math\functions\easing\elastic-easing-function.cpp" />
     <ClCompile Include="math\functions\easing\quadratic-function.cpp" />
+    <ClCompile Include="math\functions\grid-pattern.cpp" />
     <ClCompile Include="pipeline\ppm-consumer.cpp" />
     <ClCompile Include="primitives\cone-primitive.cpp" />
     <ClCompile Include="primitives\cylinder-primitive.cpp" />
@@ -465,6 +468,7 @@
     <ClInclude Include="animation\interval-animation.h" />
     <ClInclude Include="animation\lissajous-animation.h" />
     <ClInclude Include="animation\time-stamp.h" />
+    <ClInclude Include="cameras\fisheye-camera.h" />
     <ClInclude Include="chaiscript\chaiscript.hpp" />
     <ClInclude Include="chaiscript\chaiscript_defines.hpp" />
     <ClInclude Include="chaiscript\chaiscript_stdlib.hpp" />
@@ -507,8 +511,10 @@
     <ClInclude Include="lights\directional-light.h" />
     <ClInclude Include="materials\material-2d-transformer.h" />
     <ClInclude Include="math\functions\checkered-pattern.h" />
+    <ClInclude Include="math\functions\easing\quintic-function.h" />
     <ClInclude Include="math\functions\easing\elastic-easing-function.h" />
     <ClInclude Include="math\functions\easing\quadratic-function.h" />
+    <ClInclude Include="math\functions\grid-pattern.h" />
     <ClInclude Include="pipeline\ppm-consumer.h" />
     <ClInclude Include="primitives\cone-primitive.h" />
     <ClInclude Include="primitives\cylinder-primitive.h" />
