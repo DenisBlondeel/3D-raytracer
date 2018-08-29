@@ -9,5 +9,7 @@
 #include "primitives/triangle-primitive.h"
 #include "primitives/cylinder-primitive.h"
 #include "primitives/cone-primitive.h"
+#include "primitives\opt-mesh-reader.h"
+#include "primitives\bounding-box.h"
 
 

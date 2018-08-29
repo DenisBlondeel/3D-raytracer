@@ -1,0 +1,43 @@
+
+  var camera = Cameras.perspective( [ "eye": pos(0,2,7),
+                                      "look_at": pos(0,2,0) ] )
+
+  var plane_material = Materials.uniform( [ "ambient": Colors.white() * 0.1,
+                                            "diffuse": Colors.white() * 0.8,
+                                            "specular": Colors.black(),
+                                            "specular_exponent": 0,
+                                            "reflectivity": 0.3 ] )
+
+
+  var material = Materials.uniform( [ "ambient": Colors.white() * 0.1,
+                                      "diffuse": Colors.blue() * 0.8,
+                                      "specular": Colors.white() * 0.5,
+                                      "specular_exponent": 10 ] )
+
+  
+  var cone = decorate(material,translate(vec(0,1,0), cone_along_x()))
+
+  var root = union( [ decorate(plane_material, translate(vec(0,-1,0), xz_plane())),cone ] )
+
+  
+  var lights = [ Lights.omnidirectional( pos(0,8,10), Colors.white() * 0.5 )
+                 
+               ]
+
+ var scene = create_scene(camera, root, lights)
+
+
+var raytracer   = Raytracers.v(6)
+
+var renderer    = Renderers.standard( [ "width": 400,
+                                       "height": 400,
+                                       "sampler": Samplers.multijittered(2),
+                                       "ray_tracer": raytracer ] )
+
+
+pipeline( scene,
+          [
+            Pipeline.renderer(renderer),
+            Pipeline.wif(),
+            Pipeline.base64(),
+            Pipeline.stdout() ] )
