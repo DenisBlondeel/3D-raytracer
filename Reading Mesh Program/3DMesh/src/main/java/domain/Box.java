@@ -165,4 +165,13 @@ public class Box {
 		result.put("triangles", fdb.getFaces());
 		return result;
 	}
+	
+	public JSONObject toJSONBrief()
+	{
+		JSONObject result = new JSONObject();
+		result.put("BoundingBox", "");
+		result.put("v1", begin.toJSON());
+		result.put("v2", end.toJSON());
+		return result;
+	}
 }

@@ -11,7 +11,12 @@ public class Accelerator {
 	public Accelerator(FaceDB fdb)
 	{
 		this.fdb = fdb;
-		optimize(3);
+		optimize(2);
+	}
+	
+	public List<Box> getAllBoxes()
+	{
+		return boxList;
 	}
 	
 	public Vertex findSmallest(FaceDB db)

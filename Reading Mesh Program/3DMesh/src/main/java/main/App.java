@@ -123,6 +123,12 @@ public class App {
     	  
     	  outputWriter = new BufferedWriter(new FileWriter(f));
     	  
+    	  for(Box box : accelerator.getAllBoxes())
+    	  {
+    		  outputWriter.write(box.toJSONBrief().toString());
+    		  outputWriter.newLine();
+    	  }
+    	  
     	  for(Box box : accelerator.getEndNodes())
     	  {
     		  outputWriter.write(box.toJSON().toString());
