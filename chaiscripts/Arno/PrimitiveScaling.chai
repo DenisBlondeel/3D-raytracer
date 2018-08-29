@@ -1,0 +1,54 @@
+def scene_at(now)
+{
+  var camera = Cameras.perspective( [ "eye": pos(0,0,6),
+                                      "look_at": pos(0,1,0) ] )
+
+  var material = Materials.uniform( [ "ambient": Colors.white() * 0.1,
+                                   "diffuse": Colors.white() * 0.8,
+                                   "specular": Colors.white(),
+                                   "specular_exponent": 20,
+                                   "reflectivity": 0,
+                                   "transparency": 0,
+                                   "refractive_index": 0 ] )
+ /*
+  var cylinder = crop_along_y(cylinder_along_y(), interval(-1,1))
+
+  var primitives = []
+
+  [1..10].for_each( bind( fun (i, primitives, cylinder, now) {
+    var size = 0.1 * i
+    var s = Animations.animate(1.0, size, seconds(5))[now]
+
+    primitives.push_back( scale( size, 1/s, size, cylinder ) )
+  }, _, primitives, cylinder, now ) )
+
+  var root = decorate(material, union( primitives ))
+	*/
+	
+	
+	var plane     = decorate(material, translate(vec(0,-1,0), xz_plane()))
+	var s = Animations.animate(1.0, 2.0, seconds(5))
+	var sphere = decorate(material, translate(vec(0,1,0),scale(s[now],s[now],s[now],sphere())))
+  //var root = decorate(material, scale(s[now],1,1,sphere))
+	
+	var root      = union( [sphere, plane] )
+
+  var lights = [ Lights.omnidirectional( pos(4,5,5), Colors.white() ) ]
+
+  create_scene(camera, root, lights)
+}
+
+
+var raytracer   = Raytracers.v(6)
+
+var renderer    = Renderers.standard( [ "width": 400,
+                                       "height": 400,
+                                       "sampler": Samplers.multijittered(2),
+                                       "ray_tracer": raytracer ] )
+
+pipeline( scene_animation(scene_at, seconds(5)),
+          [ Pipeline.animation(30),
+            Pipeline.renderer(renderer),
+            Pipeline.wif(),
+            Pipeline.base64(),
+            Pipeline.stdout() ] )

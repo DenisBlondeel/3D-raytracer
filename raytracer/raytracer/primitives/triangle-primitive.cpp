@@ -60,9 +60,18 @@ namespace
 		math::Box bounding_box() const override
 		{
 			// Create a [-1, 1] x [-1, 1] x [-1, 1] box.
-			auto range = interval(-1.0, 1.0);
+			auto minX = std::min(std::min(x_P1.x(), x_P2.x()), x_P3.x());
+			auto minY = std::min(std::min(x_P1.y(), x_P2.y()), x_P3.y());
+			auto minZ = std::min(std::min(x_P1.z(), x_P2.z()), x_P3.z());
 
-			return Box(range, range, range);
+			auto maxX = std::max(std::max(x_P1.x(), x_P2.x()), x_P3.x());
+			auto maxY = std::max(std::max(x_P1.y(), x_P2.y()), x_P3.y());
+			auto maxZ = std::max(std::max(x_P1.z(), x_P2.z()), x_P3.z());
+
+			return Box(interval(minX, maxX), interval(minY, maxY), interval(minZ, maxZ));
+			//auto range = interval(-1.0, 1.0);
+
+			//return Box(range, range, range);
 		}
 	};
 }

@@ -23,6 +23,10 @@ namespace
 
         return primitives::make_union(children);
     }
+	Primitive create_mesh(const std::string path)
+	{
+		return primitives::OptMeshReader().read_mesh(path);
+	}
 }
 
 ModulePtr raytracer::scripting::_private_::create_primitives_module()
@@ -58,6 +62,8 @@ ModulePtr raytracer::scripting::_private_::create_primitives_module()
     BIND_DIRECTLY(decorate);
     BIND_DIRECTLY(translate);
 	BIND_DIRECTLY(scale);
+	BIND_HELPER_FUNCTION_AS(create_mesh, create_mesh);
+	BIND_HELPER_FUNCTION_AS(primitives::bounding_box_accelerator, accelerate);
 #   undef BIND_HELPER_FUNCTION_AS
 #   undef BIND_DIRECTLY
 #   undef BIND_HELPER_FUNCTION
